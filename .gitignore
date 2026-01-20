@@ -1,0 +1,46 @@
+# General
+.DS_Store
+.env
+.vscode/
+.idea/
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.pytest_cache/
+
+# Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Rust
+/target/
+**/*.rs.bk
+
+# Go
+/bin/
+product-service/main  # compiled binary
+
+# C# / .NET
+bin/
+obj/
+*.user
+
+# PHP
+vendor/
+
+# Ruby
+.bundle/
+vendor/bundle/
+
+# Perl
+cpanfile.snapshot
+local/
