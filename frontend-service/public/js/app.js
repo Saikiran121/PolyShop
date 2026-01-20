@@ -86,16 +86,31 @@ function checkLoginProfile() {
 
 // Authentication Logic
 function setupAuthListeners() {
-    document.getElementById('login-form').addEventListener('submit', (e) => {
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = e.target.querySelector('input[type="email"]').value;
         const password = e.target.querySelector('input[type="password"]').value;
 
-        // Admin hardcoded check
+        // 1. Admin Check (Hardcoded Secure Credentials)
         if (email === 'admin@polyshop.com' && password === 'admin123') {
             login({ name: "Administrator", email: email, isAdmin: true });
-        } else {
-            login({ name: "User", email: email, isAdmin: false });
+            return;
+        }
+
+        // 2. Regular User Check (Backend Verification)
+        try {
+            // Check if user exists in Java User Service
+            const res = await fetch(`http://localhost:8085/users/${email}`);
+
+            if (res.ok) {
+                const user = await res.json();
+                login({ name: user.name, email: user.email, isAdmin: false });
+            } else {
+                showToast("User not found! Please valid credentials or Sign Up.");
+            }
+        } catch (err) {
+            console.error(err);
+            showToast("Login service offline.");
         }
     });
 
