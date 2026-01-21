@@ -7,3 +7,6 @@ buildCommand: ""
 testCommand: npm test
 
 nodeEnv: production
+
+sonarProjectKey: frontend-service
+sonarProjectName: frontend-service
