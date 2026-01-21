@@ -3,7 +3,7 @@ serviceDir: frontend-service
 language: node
 
 installCommand: npm install
-buildCommand: npm run build 
+buildCommand: ""
 testCommand: npm test
 
 nodeEnv: production
