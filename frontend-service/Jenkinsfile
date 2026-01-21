@@ -1,0 +1,15 @@
+@Library('jenkins-shared-library') _ 
+
+pipeline {
+    agent any 
+
+    stages {
+        stage('CI/CD') {
+            steps {
+                script {
+                    runServicePipeline('frontend-service'/* service name */, 'nodejs' /* technology stack */)
+                }
+            }
+        }
+    }
+}

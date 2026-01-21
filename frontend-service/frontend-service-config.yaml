@@ -1,0 +1,6 @@
+serviceName: frontend-service
+language: node
+buildCommand: npm install
+testCommand: npm test
+startCommand: npm start
+dockerImage: saikiran/frontend-service
