@@ -19,7 +19,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 script {
-                    for service in services {
+                    for (service in services) {
                         echo "Processing ${service}"
 
                         dir(service) {
